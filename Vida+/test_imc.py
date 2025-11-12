@@ -1,4 +1,5 @@
 from imc import *
+import pytest
 def  test_calcular_imc():
     assert calcular_imc(70, 1.75) == 22.86
 
@@ -12,3 +13,6 @@ def test_classificar_imc():
 
 def test_casas():
    assert calcular_imc(80, 1.80) == round(80 / (1.80 ** 2), 2)
+   with pytest.raises(ValueError):    
+        calcular_imc(70,0)
+    #assert calcular_imc(70,0) == "A altura deve ser maior que zero!!"
